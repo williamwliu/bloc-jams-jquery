@@ -16,6 +16,10 @@
  
       song.element.on('click', event => {
         player.playPause(song);
+
+        //makes it so that the song list play/pause button matches the playstate
+        $('button#play-pause').attr('playState', player.playState);
+
       });
  
       $('#song-list').append(song.element);    

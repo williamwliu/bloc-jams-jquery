@@ -17,14 +17,11 @@
      if (nextSongIndex >= album.songs.length) { return; }
 
 
-     //Next track doesnt respond if there is no next song
-     if (nextSongIndex >= album.songs.length) { return; }
-
      //assigns the next song based on the nextsongIndex to a variable
      const nextSong = album.songs[nextSongIndex];
 
      //call players to play that song
      player.playPause(nextSong);
+    });
 
-  });
   }

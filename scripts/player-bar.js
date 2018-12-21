@@ -31,4 +31,23 @@
     //call players to play that song
     player.playPause(prevSong);
   });
+
+  
+  //makes slider change current position of song playing
+  $('#time-control input').on('input', function (event) {
+    player.skipTo(event.target.value);
+
+  });
+
+  //Moves slider according to song playing
+  setInterval( () => {
+    if (player.playState !== 'playing') { return; }  //doesnt do anything if song is not playing  
+    const currentTime = player.getTime();             //sets current time
+    const duration = player.getDuration();            //setss duration of song
+    const percent = (currentTime / duration) * 100;   //sets percent of song played 
+    $('#time-control .current-time').text( currentTime );  //sets #time-control to currentTime variable
+
+    $('#time-control input').val(percent);            //sets input value
+
+  }, 1000); //refreshes every 1000 milliseconds
 }
